@@ -32,7 +32,7 @@ function formatTime (raw) {
 // we'll store the interval id so we can manipulate the interval later
 function stopwatchStart (event) {
   event.preventDefault()
-  console.log('started!')
+  console.log('Started!')
 
   // every 10 milliseconds, update the stopwatch
   intervalId = setInterval(stopwatchUpdate, intervalRate)
@@ -48,7 +48,7 @@ function stopwatchUpdate () {
 // stops the stopwatch by clearing the interval
 function stopwatchStop (event) {
   event.preventDefault()
-  console.log('stopped!')
+  console.log('Stopped!')
 
   clearInterval(intervalId)
 }
@@ -73,7 +73,7 @@ function stopwatchLap (event) {
 function stopwatchReset (event) {
   event.preventDefault()
   laps = [];
-  console.log('Restart!')
+  console.log('Reset!')
   rawTime = 0;
   stopwatchTime.innerHTML = formatTime(rawTime)
   clearInterval(intervalId)
