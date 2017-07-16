@@ -54,9 +54,12 @@ function stopwatchStop (event) {
 // logs the lap in the lap array
 function stopwatchLap (event) {
   event.preventDefault()
+  laps.push(stopwatchTime.innerHTML)
+  console.log(laps)
   console.log('Recorded!')
-
   clearInterval(intervalId)
+  rawTime = 0;
+  stopwatchTime.innerHTML = formatTime(rawTime)
 }
 
 // clears the stopwatch and the lap array
