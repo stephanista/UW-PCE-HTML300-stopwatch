@@ -9,8 +9,10 @@ const lapList = document.querySelector('#lapList')
 const stopwatchTime = document.querySelector('#stopwatchTime')
 
 // constants that shouldn't ever change
-const laps = []
 const intervalRate = 10 // update the stopwatch every 10 milliseconds
+
+// array for laps. if constant reset won't work
+laps = []
 
 // values that will change pretty often
 let intervalId = null
@@ -60,14 +62,26 @@ function stopwatchLap (event) {
   clearInterval(intervalId)
   rawTime = 0;
   stopwatchTime.innerHTML = formatTime(rawTime)
+  var lapsYah = "";
+  for (var i = 0, lap; lap = laps[i]; i++) {
+    lapsYah += "<li>" + lap + "</li>";
+   }
+  document.getElementById("lapList").innerHTML = lapsYah;
 }
 
 // clears the stopwatch and the lap array
 function stopwatchReset (event) {
   event.preventDefault()
+  laps = [];
   console.log('Restart!')
-
+  rawTime = 0;
+  stopwatchTime.innerHTML = formatTime(rawTime)
   clearInterval(intervalId)
+  var lapsYah = "";
+  for (var i = 0, lap; lap = laps[i]; i++) {
+    lapsYah += "<li>" + lap + "</li>";
+   }
+  document.getElementById("lapList").innerHTML = lapsYah;
 }
 
 // adds a leading zero because humans like them
